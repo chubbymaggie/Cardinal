@@ -6,6 +6,26 @@
 #
 # Luke Jones (luke.t.jones.814@gmail.com)
 #
+# The MIT License (MIT)
+# Copyright (c) 2016 Chthonian Cyber Services
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
 #-----------------------------------------------------------------------------
 
 import re
@@ -296,13 +316,14 @@ arg_regs = ['rdi','rsi','rdx','rcx','r8','r9']
 arg_regs_syscall = ['rdi','rsi','rdx','r10','r8','r9']
 arg_regs_fp = ['xmm0','xmm1','xmm2','xmm3','xmm4','xmm5','xmm6','xmm7']
 #TODO: lt: adding low (dl, cl) for rdx, and rcx might be correct?
-arg_regs_all = [
-    'rdi','edi','di','rsi','esi','si','rdx','edx','dx','dl','rcx','ecx','cx',
-    'cl','r10','r10d','r10w','r10b','r8','r8d','r8w','r8b','r9','r9d','r9w',
-    'r9b','xmm0','xmm1','xmm2','xmm3','xmm4','xmm5','xmm6','xmm7'
-]
+#arg_regs_all = [
+#    'rdi','edi','di','rsi','esi','si','rdx','edx','dx','dl','rcx','ecx','cx',
+#    'cl','r10','r10d','r10w','r10b','r8','r8d','r8w','r8b','r9','r9d','r9w',
+#    'r9b','xmm0','xmm1','xmm2','xmm3','xmm4','xmm5','xmm6','xmm7'
+#]
 arg_reg_rdi = ['rdi','edi','di']
 arg_reg_rsi = ['rsi','esi','si']
+#arg_reg_rsi = ['derp']
 arg_reg_rdx = ['rdx','edx','dx','dl']
 arg_reg_rcx = ['rcx','ecx','cx','cl']
 arg_reg_r10 = ['r10d','r10w','r10b','r10']
@@ -316,7 +337,10 @@ arg_reg_xmm4 = ['xmm4']
 arg_reg_xmm5 = ['xmm5']
 arg_reg_xmm6 = ['xmm6']
 arg_reg_xmm7 = ['xmm7']
-
+arg_regs_all = arg_reg_rdi + arg_reg_rsi + arg_reg_rdx + arg_reg_rcx +\
+                arg_reg_r10 + arg_reg_r8 + arg_reg_r9 + arg_reg_xmm0 +\
+                arg_reg_xmm1 + arg_reg_xmm2 + arg_reg_xmm3 + arg_reg_xmm4 +\
+                arg_reg_xmm5 + arg_reg_xmm6 + arg_reg_xmm7
 
 #-------------------------------------
 #Basic arg finding
